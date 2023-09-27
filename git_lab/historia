@@ -1,0 +1,33 @@
+  188  git commit -m "edit2"
+  189  git push
+  190  git add .
+  191  git commit -m "edit3"
+  192  git push
+  193  history
+  194  ls
+  195  mkdir git_lab
+  196  alias c= clear
+  197  alias c-clear
+  198  alias c=clear
+  199  cd git_lab/
+  200  ls
+  201  echo "Janusz Kowalski" > file
+  202  ls
+  203  cat file
+  204  echo "nowa linia" >>file
+  205  cat file
+  206  vim file
+  207  cat file
+  208  ls -l
+  209  ls -l > file
+  210  vim file
+  211  git config --global --list
+  212  git config --global --edit
+  213  history
+  214  git add .
+  215  cd ..
+  216  cd git_lab/
+  217  history | tail - 2
+  218  history | tail -2
+  219  history | tail -28
+  220  history | tail -33 >  historia

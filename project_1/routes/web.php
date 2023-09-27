@@ -38,7 +38,10 @@ Route::get('/city_old', function(){
 });
 
 Route::get('/city', function(){
-    return view('city');
+    return view('city', [
+        'name' => "",
+        'city' => ""
+    ]);
 });
 
 
@@ -139,7 +142,7 @@ Route::get("/address4/{city?}/{street?}/{zipCode?}",function(string $city ="-", 
 Route::redirect('stronaglowna', '/');
 Route::redirect('xyz', 'stronaglowna');
 
-Route::redirect("danemiasta","address4");
+Route::redirect("danemiasta/{city?}/{street?}/{zipCode?}","/address4/{city?}/{street?}/{zipCode?}");
 
 
 
