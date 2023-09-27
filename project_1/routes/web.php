@@ -144,5 +144,21 @@ Route::redirect('xyz', 'stronaglowna');
 
 Route::redirect("danemiasta/{city?}/{street?}/{zipCode?}","/address4/{city?}/{street?}/{zipCode?}");
 
+// ćwiczonka w domu 27.09.2023
+Route::get("/about1/{x}", function($x){
+    $names = [
+        "kuba",
+        "karol",
+        "damian"
+    ];
+    $text = "moje imie to: ";
+    if($x>count($names)){
+        return "tego imienia nie ma w bazie";
+    }
+    else{
+        return $text.$names[$x];
+    }
+
+});
 
 
