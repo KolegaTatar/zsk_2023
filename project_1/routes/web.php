@@ -28,7 +28,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
 
 
 
@@ -75,6 +74,8 @@ Route::get('pages/{x}', function($x){
 
 Route::redirect('stronaglowna', '/');
 
+
+/*
 Route::get("/address/{city}",function(string $city){
     echo "Miasto $city";
 });
@@ -88,11 +89,57 @@ Route::get("/address1/{city}/{street}",function(string $city,  string $street){
 });
 
 Route::get("/address2/{city}/{street}/{zipCode}",function(string $city,  string $street, int $zipCode){
+    $zipCode = substr($zipCode,0,2).'-'.substr($zipCode,2,3);
     echo <<< ADRESS
+
         Kod pocztowy $zipCode <br>
         Miasto: $city <br>
         Ulica: $street 
         <hr>
     ADRESS;
 });
+
+Route::get("/address3/{city}/{street}/{zipCode?}",function(string $city,  string $street, int $zipCode = null){           zipCode? parametr opcjonalny 
+    if(is_null($zipCode)){
+        $zipCode = "brak danych";
+    }
+    else{
+        $zipCode = substr($zipCode,0,2).'-'.substr($zipCode,2,3);
+    };
+    
+    echo <<< ADRESS
+
+        Kod pocztowy $zipCode <br>
+        Miasto: $city <br>
+        Ulica: $street 
+        <hr>
+    ADRESS;
+});
+*/
+
+
+
+Route::get("/address4/{city?}/{street?}/{zipCode?}",function(string $city ="-",  string $street ="-", int $zipCode = null){ //zipCode? parametr opcjonalny
+    if(is_null($zipCode)){
+        $zipCode = "brak danych";
+    }
+    else{
+        $zipCode = substr($zipCode,0,2).'-'.substr($zipCode,2,3);
+    };
+    
+    echo <<< ADSRESS
+
+        Kod pocztowy $zipCode <br>
+        Miasto: $city <br>
+        Ulica: $street
+        <hr>
+    ADSRESS;
+})->name('x');
+
+Route::redirect('stronaglowna', '/');
+Route::redirect('xyz', 'stronaglowna');
+
+Route::redirect("danemiasta","address4");
+
+
 
