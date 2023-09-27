@@ -31,6 +31,9 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
+
+
+
 Route::get('/city_old', function(){
     return ('Miasto');
 });
@@ -39,8 +42,9 @@ Route::get('/city', function(){
     return view('city');
 });
 
-Route::redirect(uri:'/',destination:'/city_old');
-Route::redirect(uri:'/',destination:'/city', status:301);
+
+//Route::redirect(uri:'/',destination:'/city_old');
+//Route::redirect(uri:'/',destination:'/city', status:301);
 Route::get('/status', function(){
     $response = Response::json([
         'error' =>false,
@@ -70,3 +74,25 @@ Route::get('pages/{x}', function($x){
 });
 
 Route::redirect('stronaglowna', '/');
+
+Route::get("/address/{city}",function(string $city){
+    echo "Miasto $city";
+});
+
+Route::get("/address1/{city}/{street}",function(string $city,  string $street){
+    echo <<< ADRESS
+        Miasto: $city <br>
+        Ulica: $street
+        <hr>
+    ADRESS;
+});
+
+Route::get("/address2/{city}/{street}/{zipCode}",function(string $city,  string $street, int $zipCode){
+    echo <<< ADRESS
+        Kod pocztowy $zipCode <br>
+        Miasto: $city <br>
+        Ulica: $street 
+        <hr>
+    ADRESS;
+});
+
