@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\ShowController;
+use App\Http\Controllers\ArrayController;
+use App\Http\Controllers\UserFormController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,8 +30,6 @@ Route::middleware([
 });
 
 
-Route::get('/show',[ShowController::class,"show"])->name('');
-Route::get('/data',[ShowController::class,"showFirstName"]);
-Route::get("/test",function(){
-    return "działa";
-});
+Route::get('/array',[ArrayController::class,"show_array"]);
+Route::view("userform","forms.user_form");
+Route::get("UserFormController",[UserFormController::class,"showUser"]);
