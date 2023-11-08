@@ -27,7 +27,10 @@ class UserFormController extends Controller
         'lastName.required' => 'Pole nazwisko jest wymagane',
         'lastName.min' => 'Pole nazwisko musi mieć minimum 3 znaki',
         'lastName.max' => 'Pole nazwisko musi mieć maksimum 20 znaków',
-        'mail.required' => 'Pole mail jest wymagane',
+
+        'mail.required' => 'Pole :attribute jest wymagane',
+        'mail.email' => 'Pole :attribute musi być typu email',
+
     ]
 );
 
