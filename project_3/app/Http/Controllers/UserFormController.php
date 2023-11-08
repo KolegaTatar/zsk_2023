@@ -20,7 +20,7 @@ class UserFormController extends Controller
         'mail'=> 'required | email',
     ],
     [
-        'firstName.required' => 'Pole :attribute jest wymagane',
+        /*'firstName.required' => 'Pole :attribute jest wymagane',
         'firstName.min' => 'Pole imię musi mieć minimum :min znaki',
         'firstName.max' => 'Pole imię musi mieć maksimum :max znaków',
 
@@ -30,7 +30,7 @@ class UserFormController extends Controller
 
         'mail.required' => 'Pole :attribute jest wymagane',
         'mail.email' => 'Pole :attribute musi być typu email',
-
+*/
     ]
 );
 
