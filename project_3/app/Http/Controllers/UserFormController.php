@@ -14,10 +14,28 @@ class UserFormController extends Controller
        #return $req -> method();  GET
        #return $req -> all(); {"firstName":"Adam","lastName":"Susz"}
 
+    $req ->validate([
+        'firstName' => 'required | min:3 | max:10',
+        'lastName' => 'required | min:3 | max:20',
+        'mail'=> 'required | email',
+    ],
+    [
+        'firstName.required' => 'Pole :attribute jest wymagane',
+        'firstName.min' => 'Pole imię musi mieć minimum :min znaki',
+        'firstName.max' => 'Pole imię musi mieć maksimum :max znaków',
+
+        'lastName.required' => 'Pole nazwisko jest wymagane',
+        'lastName.min' => 'Pole nazwisko musi mieć minimum 3 znaki',
+        'lastName.max' => 'Pole nazwisko musi mieć maksimum 20 znaków',
+        'mail.required' => 'Pole mail jest wymagane',
+    ]
+);
+
 
        $dataUser = [
         "firstName" => $req->input("firstName"),
-        "lastName"=> $req->input("lastName")
+        "lastName"=> $req->input("lastName"),
+        "mail" => $req->input("mail"),
        ];
 
        return view("user",["user" => $dataUser]);
