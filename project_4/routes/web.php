@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ShowDBController;
+use App\Http\Controllers\DBController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +28,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get("db",[ShowDBController::class,"ShowTableUsers"]);
+Route::get("db2",[DBController::class,"ShowTableUser"]);
