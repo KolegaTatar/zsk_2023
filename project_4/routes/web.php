@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ShowDBController;
 use App\Http\Controllers\DBController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,3 +32,5 @@ Route::middleware([
 
 Route::get("db",[ShowDBController::class,"ShowTableUsers"]);
 Route::get("db2",[DBController::class,"ShowTableUser"]);
+Route::resource('product', ProductController::class);
+Route::get("create",[ProductController::class, "create"]);
