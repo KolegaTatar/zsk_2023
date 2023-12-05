@@ -34,3 +34,4 @@ Route::get("db",[ShowDBController::class,"ShowTableUsers"]);
 Route::get("db2",[DBController::class,"ShowTableUser"]);
 Route::resource('product', ProductController::class);
 Route::get("create",[ProductController::class, "create"]);
+Route::get("show_p",[ProductController::class,"show_products"]);

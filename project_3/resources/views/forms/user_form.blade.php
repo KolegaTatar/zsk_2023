@@ -35,7 +35,7 @@
             {{$message}}
         @enderror
         <br> <br>
-        <input type="email" name="mail" placeholder="Podaj poczte elektroniczną" value="{{old('mail')}}">
+        <input type="email" name="mail" placeholder="Podaj poczte elektroniczną" value="{{old('email')}}">
         @error('mail')
             {{$message}}
         @enderror
